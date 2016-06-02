@@ -27,7 +27,14 @@ frankenstein = c(
 #
 # Store the result in Frankenstein.
 
-###THIS IS SOME NEW CODE
+frankenstein
+install.packages("stringr")
+library(stringr)
+
+help(str_c)
+
+str_c(frankenstein, collapse=" ")
+
 
 # Exercise 2 ----------------------------------------------------------------------------------------------------------
 
