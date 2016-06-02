@@ -41,19 +41,39 @@ str_c(frankenstein, collapse=" ")
 # Split nonsense on line breaks. Remove excess white space from each line. Reassemble the text as a single string.
 # Store the result as Nonsense.
 
+Nonsense <- str_split(Nonsense, "\n")
+Nonsense <- unlist(Nonsense)
+Nonsense <- str_trim(Nonsense)
+Nonsense <- str_c(Nonsense)
+
+
 # Exercise 3 ----------------------------------------------------------------------------------------------------------
 
 # Count the number of times that the word "me" appears in Frankenstein. Resist the urge to do this manually!
+str_count(frankenstein, pattern = "me")
+str_count(frankenstein, pattern = " me ")
+str_count(frankenstein, "\\bme\\b")
+str_count("me me me", "me")
+str_count("me me me", " me\\b")
 
 # Exercise 4 ----------------------------------------------------------------------------------------------------------
 
 # Find the position of the word "courage" in Frankenstein.
 # Find the positions of all occurrences of the word "own" in Frankenstein.
 
+str_locate(frankenstein, "courage")
+str_locate_all(frankenstein, "\\bme\\b")
+str_locate_all(frankenstein, "[Cc]ourage\\b")
+
 # Exercise 5 ----------------------------------------------------------------------------------------------------------
 
 # In Nonsense replace every occurrence of "Bee" with "Donkey".
 
+str_replace_all(Nonsense, "Bee", "Donkey")
+
+
 # Exercise 6 ----------------------------------------------------------------------------------------------------------
 
 # Wrap the Frankenstein text into a paragraph with at most 80 characters per line.
+str_wrap(frankenstein, width = 80)
+cat(str_wrap(frankenstein, width = 80))
